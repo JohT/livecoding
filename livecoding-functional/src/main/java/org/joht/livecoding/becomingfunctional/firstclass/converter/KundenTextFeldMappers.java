@@ -5,7 +5,7 @@ import org.joht.livecoding.becomingfunctional.firstclass.api.Kunde;
 /**
  * Beispiel fuer die Implementierung mehrerer {@link KundenTextFeldMapper} als enum.
  * 
- * @author johannestroppacher
+ * @author JohT
  */
 public enum KundenTextFeldMappers implements KundenTextFeldMapper {
 

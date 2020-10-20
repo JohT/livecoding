@@ -14,7 +14,7 @@ import org.joht.livecoding.becomingfunctional.firstclass.api.Kunde;
  * Um ein selbstgeschriebenes Interface (selten notwendig, hier nur als Beispiel) mit dem
  * Lambda-Syntax verwenden zu koennen, wird die Annotation {@link FunctionalInterface} verwendet.
  * 
- * @author johannestroppacher
+ * @author JohT
  */
 @FunctionalInterface
 public interface KundenTextFeldMapper {
