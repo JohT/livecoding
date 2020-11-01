@@ -13,18 +13,12 @@ public class AddressWithNotificationService {
 	@Inject
 	private AddressRepository repository;
 	
-	@Inject
-	private Event<AddressChangedEvent> notifyEvent;
-	
 	public Address getAddress(String id) {
 		return repository.getAddress(id);
 	}
 	
 	public void setAddress(Address newAddress) {
-		String id = newAddress.getId();
-		Address oldAddress = repository.setAddress(id, newAddress);
-		if (oldAddress != null) {
-			notifyEvent.fire(new AddressChangedEvent(id));
-		}
+		//TODO call repository set
+		//TODO fire event when old address exists
 	}
 }
