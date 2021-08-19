@@ -15,3 +15,6 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build Change Data Capture Example with Maven
+      working-directory: livecoding-change-data-capture
+      run: mvn -B package --file pom.xml
