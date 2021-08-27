@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>io.github.joht.livecoding</groupId>
+		<artifactId>livecoding-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>livecoding-eventsourcing</artifactId>
+	<name>livecoding-eventsourcing</name>
+	<description>Simple example for eventsourcing</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+		
+		<!-- APIs -->
+		<jakarta.cdi-api.version>3.0.0</jakarta.cdi-api.version>
+		<jakarta.json-api.version>2.0.1</jakarta.json-api.version>
+		<jakarta.json.bind-api.version>2.0.0</jakarta.json.bind-api.version>
+		<jakarta.concurrent-api.version>2.0.0</jakarta.concurrent-api.version>
+		
+		<!-- EventSourcing -->
+		<axon.eventsourcing.version>4.5.3</axon.eventsourcing.version>
+		<axon.test.version>4.5.3</axon.test.version>
+		
+		<!-- Provider -->
+		<json-processing-provider-glassfish.version>2.0.1</json-processing-provider-glassfish.version> 
+		<json-binding-provider-yasson.version>2.0.2</json-binding-provider-yasson.version> 
+		
+		<!-- Test libraries -->
+		<archunit.version>0.21.0</archunit.version>
+		<equalsverifier.version>3.7.1</equalsverifier.version>
+		<weld-junit5.version>3.0.0.Final</weld-junit5.version>
+		<mockito.version>3.12.4</mockito.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<junit-jupiter.version>5.7.2</junit-jupiter.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.enterprise</groupId>
+			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<version>${jakarta.cdi-api.version}</version>
+		</dependency>
+
+		<dependency>
+    		<groupId>jakarta.json</groupId>
+    		<artifactId>jakarta.json-api</artifactId>
+    		<version>${jakarta.json-api.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>jakarta.json.bind</groupId>
+    		<artifactId>jakarta.json.bind-api</artifactId>
+    		<version>${jakarta.json.bind-api.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>jakarta.enterprise.concurrent</groupId>
+    		<artifactId>jakarta.enterprise.concurrent-api</artifactId>
+    		<version>${jakarta.concurrent-api.version}</version>
+		</dependency>
+
+		<!-- EventSourcing -->
+		<dependency>
+    		<groupId>org.axonframework</groupId>
+    		<artifactId>axon-eventsourcing</artifactId>
+    		<version>${axon.eventsourcing.version}</version>
+		</dependency>
+
+		<!-- Test Library for AxonFramework -->
+		<dependency>
+    		<groupId>org.axonframework</groupId>
+    		<artifactId>axon-test</artifactId>
+    		<version>${axon.test.version}</version>
+    		<scope>test</scope>
+		</dependency>
+
+		<!-- Test CDI Provider -->
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-junit5</artifactId>
+			<version>${weld-junit5.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Test JSON-P (Processing) Provider -->
+		<dependency>
+    		<groupId>org.glassfish</groupId>
+    		<artifactId>jakarta.json</artifactId>
+    		<version>${json-processing-provider-glassfish.version}</version>
+    		<scope>test</scope>
+		</dependency>
+
+		<!-- Test JSON-B (Binding) Provider -->
+		<dependency>
+    		<groupId>org.eclipse</groupId>
+    		<artifactId>yasson</artifactId>
+    		<version>${json-binding-provider-yasson.version}</version>
+    		<scope>test</scope>
+		</dependency>
+
+		<dependency>
+    		<groupId>com.tngtech.archunit</groupId>
+    		<artifactId>archunit-junit5</artifactId>
+    		<version>${archunit.version}</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>nl.jqno.equalsverifier</groupId>
+			<artifactId>equalsverifier</artifactId>
+			<version>${equalsverifier.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.mockito</groupId>
+    		<artifactId>mockito-junit-jupiter</artifactId>
+    		<version>${mockito.version}</version>
+    		<scope>test</scope>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.hamcrest</groupId>
+    		<artifactId>hamcrest</artifactId>
+    		<version>${hamcrest.version}</version>
+    		<scope>test</scope>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.junit.jupiter</groupId>
+    		<artifactId>junit-jupiter</artifactId>
+   			<version>${junit-jupiter.version}</version>
+    		<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

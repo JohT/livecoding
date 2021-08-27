@@ -42,6 +42,7 @@
 		<java.version>1.8</java.version>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.failsafe.version>2.22.2</maven.failsafe.version>
 		<maven.source.version>3.2.1</maven.source.version>
 		<maven.javadoc.version>3.2.0</maven.javadoc.version>
 		<jacoco.codecoverage.version>0.8.6</jacoco.codecoverage.version>
@@ -50,6 +51,7 @@
 	<modules>
 		<module>livecoding-functional</module>
 		<module>livecoding-eventdriven</module>
+		<module>livecoding-eventsourcing</module>
 	</modules>
 
 	<dependencies>
@@ -72,6 +74,19 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven.surefire.version}</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>${maven.failsafe.version}</version>
+					<executions>
+                    	<execution>
+                        	<goals>
+                            	<goal>integration-test</goal>
+                            	<goal>verify</goal>
+                        	</goals>
+                    	</execution>
+                	</executions>
 				</plugin>
 
 				<plugin>
