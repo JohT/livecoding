@@ -13,7 +13,11 @@ import org.joht.livecoding.eventsourcing.message.CreateProductCommand;
 import org.joht.livecoding.eventsourcing.message.ProductCreatedEvent;
 import org.joht.livecoding.eventsourcing.message.ProductNameChangedEvent;
 import org.joht.livecoding.eventsourcing.message.ProductNamePresetEvent;
+import org.joht.livecoding.eventsourcing.message.ReadProductCommand;
 
+import jakarta.enterprise.context.Dependent;
+
+@Dependent
 @AggregateRoot
 public class ProductAggregate {
 	
@@ -42,6 +46,17 @@ public class ProductAggregate {
 		AggregateLifecycle.apply(new ProductCreatedEvent(command.getProductId()));
 		AggregateLifecycle.apply(ProductNamePresetEvent.emptyNameFor(command.getProductId()));
 		return newAggregate;
+	}
+
+	/**
+	 * This command handler is only for demonstration purposes and wouldn't be necessary,
+	 * when the reading the product is done on the query side, and not here in the aggregate on the command side.
+	 * @param command {@link ReadProductCommand}
+	 * @return {@link Product}
+	 */
+	@CommandHandler
+	public Product getProduct(ReadProductCommand command) {
+		return new Product(getId(), getName());
 	}
 
 	@CommandHandler
