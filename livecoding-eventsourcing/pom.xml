@@ -3,19 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>io.github.joht.livecoding</groupId>
-		<artifactId>livecoding-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-	</parent>
-
+	<groupId>io.github.joht.livecoding</groupId>
 	<artifactId>livecoding-eventsourcing</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>livecoding-eventsourcing</name>
 	<description>Simple example for eventsourcing</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
+		
+		<maven.compiler.version>3.8.1</maven.compiler.version>
+		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.failsafe.version>2.22.2</maven.failsafe.version>
 		
 		<!-- APIs -->
 		<jakarta.cdi-api.version>3.0.0</jakarta.cdi-api.version>
@@ -25,6 +25,7 @@
 		
 		<!-- EventSourcing -->
 		<axon.eventsourcing.version>4.5.3</axon.eventsourcing.version>
+		<axon.configuration.version>4.5.3</axon.configuration.version>
 		<axon.test.version>4.5.3</axon.test.version>
 		
 		<!-- Provider -->
@@ -70,6 +71,12 @@
     		<groupId>org.axonframework</groupId>
     		<artifactId>axon-eventsourcing</artifactId>
     		<version>${axon.eventsourcing.version}</version>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.axonframework</groupId>
+    		<artifactId>axon-configuration</artifactId>
+    		<version>${axon.configuration.version}</version>
 		</dependency>
 
 		<!-- Test Library for AxonFramework -->
@@ -146,6 +153,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -154,11 +162,20 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
-			</plugin>
+				<version>${maven.failsafe.version}</version>
+				<executions>
+                	<execution>
+                    	<goals>
+                        	<goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
-
 </project>

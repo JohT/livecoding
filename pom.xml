@@ -51,7 +51,6 @@
 	<modules>
 		<module>livecoding-functional</module>
 		<module>livecoding-eventdriven</module>
-		<module>livecoding-eventsourcing</module>
 	</modules>
 
 	<dependencies>
