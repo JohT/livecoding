@@ -7,13 +7,11 @@ import org.axonframework.config.Configuration;
 import org.axonframework.config.Configurer;
 import org.axonframework.config.DefaultConfigurer;
 import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
+import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.axonframework.eventsourcing.eventstore.inmemory.InMemoryEventStorageEngine;
 import org.axonframework.queryhandling.QueryGateway;
-import org.axonframework.serialization.RevisionResolver;
-import org.axonframework.serialization.Serializer;
 import org.joht.livecoding.eventsourcing.infrastructure.axon.inject.cdi.AxonComponentDiscovery;
 import org.joht.livecoding.eventsourcing.infrastructure.axon.inject.cdi.AxonComponentDiscoveryContext;
-import org.joht.livecoding.eventsourcing.infrastructure.axon.serializer.jsonb.axon.JsonbSerializer;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -41,7 +39,6 @@ public class AxonConfiguration {
 		Configurer configurer = DefaultConfigurer.defaultConfiguration();
 		addDiscoveredComponentsTo(configurer);
 		configuration = configurer
-				.configureSerializer(this::jsonbSerializer)
 				.configureEmbeddedEventStore(this::eventStorageEngine)
 				.buildConfiguration();
 		configuration.start();
@@ -58,17 +55,16 @@ public class AxonConfiguration {
 		return configuration.commandGateway();
 	}
 
-
 	@Produces
 	@ApplicationScoped
 	public QueryGateway getQuerySubmitterService() {
 		return configuration.queryGateway();
 	}
 
-	private Serializer jsonbSerializer(Configuration config) {
-		return JsonbSerializer.fieldAccess()
-				.revisionResolver(config.getComponent(RevisionResolver.class))
-				.build();
+	@Produces
+	@ApplicationScoped
+	public EventStore getEventStore() {
+		return configuration.eventStore();
 	}
 
 	private EventStorageEngine eventStorageEngine(Configuration config) {
