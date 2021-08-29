@@ -12,4 +12,10 @@ public class ProductNamePresetEvent extends ProductNameChangedEvent {
     public ProductNamePresetEvent(String productId, String name) {
         super(productId, name, "");
 	}
+
+	@Override
+	public String toString() {
+		return "ProductNamePresetEvent [toString()=" + super.toString() + "]";
+	}
+	
 }

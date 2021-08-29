@@ -3,6 +3,7 @@ package org.joht.livecoding.eventsourcing;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.AddPackages;
 import org.jboss.weld.junit5.auto.EnableAutoWeld;
@@ -21,6 +22,9 @@ class EventSourcingProductServiceIT {
 	@Inject
 	ProductService productService;
 	
+	@Inject
+	EventStore eventStore;
+	
 	@Test
 	@DisplayName("should signal a non existing product as not present")
 	void shouldSignalNonExistingProduct() {
@@ -33,8 +37,8 @@ class EventSourcingProductServiceIT {
 		Product createdProduct = productService.createProduct();
 		Product readProduct = productService.getProduct(createdProduct.getId()).get();
 		assertEquals(createdProduct, readProduct);
-	}	
-	
+	}
+
 	@Test
 	@DisplayName("should return the new name of a previously changed product when reading it")
 	void shouldReadTheNewProductThatHadBeenChangedBefore() {
@@ -47,5 +51,16 @@ class EventSourcingProductServiceIT {
 		
 		Product readProduct = productService.getProduct(createdProduct.getId()).get();
 		assertEquals(changedProduct, readProduct);
+
+		printEventStoreEntries(createdProduct.getId());
 	}	
+	
+	/**
+	 * Print event store entries for the product with the given id for demonstration and debugging purposes.
+	 * @param productId {@link String}
+	 */
+	private void printEventStoreEntries(String productId) {
+		eventStore.readEvents(productId).forEachRemaining(System.out::println);
+	}	
+
 }
