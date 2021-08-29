@@ -1,4 +1,4 @@
-package org.joht.livecoding.eventsourcing.infrastructure.axon;
+package org.joht.livecoding.eventsourcing.genericproducer;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Member;
@@ -10,6 +10,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
 
+/**
+ * Extracts the generic type parameter from fields, methods, ... .
+ */
 class GenericTypeArgument {
 
 	private final Type genericType;
