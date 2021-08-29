@@ -18,11 +18,11 @@ jobs:
     - name: Build Change Data Capture Example with Maven
       working-directory: livecoding-change-data-capture
       run: mvn -B package --file pom.xml
-    - name: (livecoding-eventsourcing) Set up JDK 11
+    - name: (livecoding-eventsourcing-cqrs) Set up JDK 11
       uses: actions/setup-java@v1
       with:
         java-version: 11
-    - name: (livecoding-eventsourcing) Build with Maven
-      working-directory: livecoding-eventsourcing
-      run: mvn -B package --file pom.xml
+    - name: (llivecoding-eventsourcing-cqrs) Build with Maven
+      working-directory: livecoding-eventsourcing-cqrs
+      run: mvn -B verify --file pom.xml
       
