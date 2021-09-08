@@ -53,3 +53,4 @@ as setter for the regarding properties.
 * [Exploring CQRS and Event Sourcing (Microsoft)](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiapv7PudjyAhXOAewKHRaTBWMQFnoECAQQAQ&url=http%3A%2F%2Fdownload.microsoft.com%2Fdownload%2Fe%2Fa%2F8%2Fea8c6e1f-01d8-43ba-992b-35cfcaa4fae3%2Fcqrs_journey_guide.pdf&usg=AOvVaw3pH9fj0F7rjnJE6yATGIXN)
 * [AxonFramework reference guide](https://docs.axoniq.io/reference-guide/)
 * [Weld JUnit 5 Auto Extensions](https://github.com/weld/weld-junit/blob/master/junit5/README.md#weldjunit5autoextension)
+* [Event Sourcing Slide Share](https://de.slideshare.net/LorenzoNicora/a-visual-introduction-to-event-sourcing-and-cqrs)
