@@ -45,7 +45,7 @@
 		<maven.failsafe.version>2.22.2</maven.failsafe.version>
 		<maven.source.version>3.2.1</maven.source.version>
 		<maven.javadoc.version>3.2.0</maven.javadoc.version>
-		<jacoco.codecoverage.version>0.8.6</jacoco.codecoverage.version>
+		<jacoco.codecoverage.version>0.8.7</jacoco.codecoverage.version>
 	</properties>
 
 	<modules>
