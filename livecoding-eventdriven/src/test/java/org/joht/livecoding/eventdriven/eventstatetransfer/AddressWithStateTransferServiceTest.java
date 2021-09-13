@@ -2,15 +2,15 @@ package org.joht.livecoding.eventdriven.eventstatetransfer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-
 import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.joht.livecoding.eventdriven.address.Address;
 import org.joht.livecoding.eventdriven.address.AddressRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
 
 @EnableAutoWeld
 class AddressWithStateTransferServiceTest {

@@ -50,7 +50,6 @@
 
 	<modules>
 		<module>livecoding-functional</module>
-		<module>livecoding-eventdriven</module>
 	</modules>
 
 	<dependencies>
