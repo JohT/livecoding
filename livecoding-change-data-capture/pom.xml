@@ -9,11 +9,31 @@
 
 	<name>livecoding change data capture</name>
 	<description>code snippets to show "change data capture" and "outbox pattern"</description>
+	<inceptionYear>2021</inceptionYear>
+	<url>https://github.com/JohT/livecoding/tree/master/livecoding-change-data-capture</url>
 
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/JohT/livecoding.git</connection>
+		<developerConnection>scm:git:git@github.com:JohT/livecoding.git</developerConnection>
+		<url>https://github.com/JohT/livecoding</url>
+		<tag>HEAD</tag>
+	</scm>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		
 		<maven.compiler.version>3.8.1</maven.compiler.version>
+		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.failsafe.version>2.22.2</maven.failsafe.version>
+		<maven.assembly.version>3.3.0</maven.assembly.version>
 		
 		<!-- APIs -->
 		<cdi.version>3.0.0</cdi.version>
@@ -119,6 +139,39 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>${maven.failsafe.version}</version>
+				<executions>
+                	<execution>
+                    	<goals>
+                        	<goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven.assembly.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>./../maven-project-assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
