@@ -15,7 +15,8 @@ public class DebeziumConfigRepository {
 
 	public Properties getProperties() {
 		Properties properties = new Properties();
-		try (InputStream propertyFile = getClass().getResourceAsStream("debezium.properties")) {
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		try (InputStream propertyFile = classLoader.getResourceAsStream("debezium.properties")) {
 			properties.load(propertyFile);
 		} catch (IOException e) {
 			LOG.log(Level.SEVERE, e, () -> "Error loading 'debezium.properties'");
