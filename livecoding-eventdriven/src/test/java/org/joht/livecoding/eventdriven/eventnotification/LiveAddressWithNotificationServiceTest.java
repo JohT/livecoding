@@ -13,7 +13,7 @@ import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
 
 @EnableAutoWeld
-class AddressWithNotificationServiceTest {
+class LiveAddressWithNotificationServiceTest {
 
 	private static final String ADDRESS_ID = "1";
 
@@ -33,24 +33,10 @@ class AddressWithNotificationServiceTest {
 	@Test
 	@DisplayName("insurance should be recalculated based on the subsequently changed address")
 	public void addressChangeNotificated() {
-		Address address = addressService.getAddress(ADDRESS_ID);
-		String newStreet = "NewStreet 10b";
-		addressService.setAddress(address.movedToStreet(newStreet));
-		assertEquals(newStreet, newAddressOfInsuranceService.getStreet());
+		//TODO getAddress ADDRESS_ID
+		//TODO set new Address using movedToStreet
+		//TODO assert newStreet equals newAddressOfInsuranceService-Street
 	}
 
-	/**
-	 * Represents a "downstream" service, that should recalculates an insurance
-	 * when an address has changed.
-	 * 
-	 * @param event {@link AddressChangedEvent}
-	 */
-	public void recalculateInsurance(@Observes AddressChangedEvent event) {
-		// since the event only contains minimal information about the
-		// changed address (=id), the "downstream" service needs to
-		// query all needed informations it needs.
-		Address queriedAddress = addressService.getAddress(event.getId());
-		newAddressOfInsuranceService = queriedAddress;
-
-	}
+	// TODO observe event and update newAddressOfInsuranceService
 }

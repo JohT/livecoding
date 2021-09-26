@@ -1,4 +1,4 @@
-package org.joht.livecoding.eventdriven.eventstatetransfer;
+package org.joht.livecoding.eventdriven.eventnotification;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +13,7 @@ import jakarta.enterprise.event.Observes;
 import jakarta.inject.Inject;
 
 @EnableAutoWeld
-class AddressWithStateTransferServiceTest {
+class AddressWithNotificationServiceIT {
 
 	private static final String ADDRESS_ID = "1";
 
@@ -21,7 +21,7 @@ class AddressWithStateTransferServiceTest {
 	private AddressRepository repository;
 	
 	@Inject
-	private AddressWithStateTransferService addressService;
+	private AddressWithNotificationService addressService;
 
 	private Address newAddressOfInsuranceService = null;
 
@@ -43,14 +43,14 @@ class AddressWithStateTransferServiceTest {
 	 * Represents a "downstream" service, that should recalculates an insurance
 	 * when an address has changed.
 	 * 
-	 * @param event {@link AddressStateChangedEvent}
+	 * @param event {@link AddressChangedEvent}
 	 */
-	public void recalculateInsurance(@Observes AddressStateChangedEvent event) {
-		// since the event now contains all informations about the new
-		// (and old) state (all address fields) of the address,
-		// the "downstream" service gets all informations and does
-		// not need to query the address.
-		newAddressOfInsuranceService = event.getNewAdress();
+	public void recalculateInsurance(@Observes AddressChangedEvent event) {
+		// since the event only contains minimal information about the
+		// changed address (=id), the "downstream" service needs to
+		// query all needed informations it needs.
+		Address queriedAddress = addressService.getAddress(event.getId());
+		newAddressOfInsuranceService = queriedAddress;
 
 	}
 }

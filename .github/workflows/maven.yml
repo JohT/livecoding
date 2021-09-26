@@ -1,4 +1,4 @@
-name: Java CI
+name: Maven Java CI
 
 on: [push]
 
@@ -9,27 +9,55 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Create a temporary artifact downloads folder
+      run: mkdir downloads
     - name: Set up JDK 1.8
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: 8
         cache: 'maven'
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Build Change Data Capture Example with Maven
+        
+    - name: (livecoding-change-data-capture) Build with Maven
       working-directory: livecoding-change-data-capture
       run: mvn -B package --file pom.xml
-    - name: (livecoding-event...) Set up JDK 11
+    - name: (livecoding-change-data-capture) Upload project zip arctifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: livecoding-change-data-capture
+        path: livecoding-change-data-capture/target/livecoding-change-data-capture-project.zip
+    
+    - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: 11
         cache: 'maven'
-    - name: (llivecoding-eventdriven) Build with Maven
+        
+    - name: (livecoding-functional) Build with Maven
+      working-directory: livecoding-functional
+      run: mvn -B verify --file pom.xml
+    - name: (livecoding-functional) Upload project zip arctifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: livecoding-functional
+        path: livecoding-functional/target/livecoding-functional-project.zip
+      
+    - name: (livecoding-eventdriven) Build with Maven
       working-directory: livecoding-eventdriven
       run: mvn -B verify --file pom.xml
-    - name: (llivecoding-eventsourcing-cqrs) Build with Maven
+    - name: (livecoding-eventdriven) Upload project zip arctifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: livecoding-eventdriven
+        path: livecoding-eventdriven/target/livecoding-eventdriven-project.zip
+
+    - name: (livecoding-eventsourcing-cqrs) Build with Maven
       working-directory: livecoding-eventsourcing-cqrs
       run: mvn -B verify --file pom.xml
+    - name: (livecoding-eventsourcing-cqrs) Upload project zip arctifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: livecoding-eventsourcing-cqrs
+        path: livecoding-eventsourcing-cqrs/target/livecoding-eventsourcing-cqrs-project.zip
       
