@@ -9,6 +9,7 @@ The following steps describe how to to use this example for (prepared) livecodin
 * Open [example-database-setup.ddl](example-database-setup.ddl).
 * Establish a connection to a local PostgreSql database.
 * If not setup yet, run the setup steps in [example-database-setup.ddl](example-database-setup.ddl) or simply the whole script.
+* After setup, the database needs to be restarted to update the "wal_level" to "logical".
 * Open the already prepared integration test [ChangeDataCaptureExampleServiceIT](src/test/java/org/joht/livecoding/changedatacapture/integrationtest/ChangeDataCaptureExampleServiceIT.java).
 * Comment or remove `@Disabled` on top of the Method `exploratoryManualDatabaseChangeExample` to get a first manual test.
 * Create a new file `ChangeDataCaptureExampleService.java` inside the folder `src/main/java/org/joht/livecoding/changedatacapture` and annotate it `@ApplicationScoped`.

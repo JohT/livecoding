@@ -1,5 +1,6 @@
 --
 -- PostgreSQL Change Data Capture (CDC) Example - Admin Settings that are needed for change data capture using debezium:
+-- The database needs to be restarted after that.  
 --
 ALTER SYSTEM SET wal_level = logical;
 SELECT * from pg_settings WHERE name ='wal_level';
