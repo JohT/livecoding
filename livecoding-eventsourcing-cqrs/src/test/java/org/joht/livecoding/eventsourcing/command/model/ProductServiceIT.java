@@ -4,7 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.axonframework.eventsourcing.eventstore.DomainEventStream;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.axonframework.eventhandling.DomainEventMessage;
 import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.jboss.weld.junit5.auto.AddBeanClasses;
 import org.jboss.weld.junit5.auto.AddPackages;
@@ -12,6 +15,7 @@ import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.joht.livecoding.eventsourcing.Product;
 import org.joht.livecoding.eventsourcing.infrastructure.axon.AxonConfiguration;
 import org.joht.livecoding.eventsourcing.message.event.ProductCreatedEvent;
+import org.joht.livecoding.eventsourcing.message.event.ProductNameChangedEvent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -36,9 +40,12 @@ class ProductServiceIT {
 	@Test
 	@DisplayName("should be able to create a new product")
 	void shouldBeAbleToCreateANewProduct() {
-		String productId = serviceUnderTest.createProduct();
-		assertNotNull(productId);
-		assertProductCreatedEventFirst(productId);
+		String newProductId = serviceUnderTest.createProduct();
+		assertNotNull(newProductId);
+		
+		List<ProductCreatedEvent> events = getEventsOfIdAndType(newProductId, ProductCreatedEvent.class);
+		assertEquals(1, events.size());
+		assertEquals(newProductId, events.get(0).getProductId());
 	}
 
 	@Test
@@ -51,7 +58,8 @@ class ProductServiceIT {
 		assertEquals(productId, changedProduct.getId());
 		assertEquals(expectedProductName, changedProduct.getName());
 		
-		assertProductCreatedEventFirst(productId);
+		List<ProductNameChangedEvent> events = getEventsOfIdAndType(productId, ProductNameChangedEvent.class);
+		assertEquals(expectedProductName, events.get(events.size() - 1).getName());
 	}	
 	
 	@Test
@@ -61,14 +69,18 @@ class ProductServiceIT {
 	}	
 	
 	/**
-	 * Asserts, that the first published event is {@link ProductCreatedEvent}.
-	 * Prints event store entries for the product with the given id for demonstration and debugging purposes.
-	 * @param productId {@link String}
+	 * Gets all events of the given type for the given aggregate id as {@link List}.
+	 * @param <T> Type
+	 * @param id {@link String}
+	 * @param eventType {@link Class}
+	 * @return {@link List} of events of the given type.
 	 */
-	private void assertProductCreatedEventFirst(String productId) {
-		DomainEventStream events = eventStore.readEvents(productId);
-		assertEquals(ProductCreatedEvent.class, events.peek().getPayloadType());
-		events.forEachRemaining(System.out::println);
-	}	
+	private <T> List<T> getEventsOfIdAndType(String id, Class<T> eventType) {
+		return eventStore.readEvents(id).asStream()
+				.map(DomainEventMessage::getPayload)
+				.filter(eventType::isInstance)
+				.map(eventType::cast)
+				.collect(Collectors.toList());
+	}
 
 }
