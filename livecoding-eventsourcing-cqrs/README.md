@@ -16,7 +16,9 @@ The following steps describe how to to use this example for (prepared) livecodin
 
 ### 1.2. Command Side - The Aggregate
 * Create an `@Dependent @AggregateRoot LiveProductAggregate` in the same package as the reference implementation [ProductAggregate.java](src/main/java/org/joht/livecoding/eventsourcing/command/model/ProductAggregate.java).
+* Deactivate the original [ProductAggregate.java](src/main/java/org/joht/livecoding/eventsourcing/command/model/ProductAggregate.java) by commenting out all `@CommandHandler` Annotations.
 * Implement the two properties `id` and `name` 
+* Annotate the `id` property with `@AggregateIdentifier`
 * Implement a static factory method annotated with `@CommandHandler` and parameter `CreateProductCommand` returning a newly created instance of the aggregate. The properties need to be set using `AggregateLifecycle.apply` by sending the regarding events, e.g. [ProductCreatedEvent](src/main/java/org/joht/livecoding/eventsourcing/message/event/ProductCreatedEvent.java).
 * Implement the `@EventSourcingHandler` method for `ProductCreatedEvent` and `ProductNameChangedEvent` 
 as setter for the regarding properties.
