@@ -1,16 +1,14 @@
 package org.joht.livecoding.eventsourcing.message.query;
 
+import java.beans.ConstructorProperties;
 import java.util.Objects;
 
 public class ProductQuery {
 
 	private final String productId;
 
-	public static final ProductQuery ofId(String productId) {
-		return new ProductQuery(productId);
-	}
-
-	protected ProductQuery(String productId) {
+	@ConstructorProperties({ "productId" })
+	public ProductQuery(String productId) {
 		this.productId = productId.trim();
 	}
 
