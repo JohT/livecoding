@@ -7,6 +7,7 @@ import org.axonframework.config.Configuration;
 import org.axonframework.config.Configurer;
 import org.axonframework.config.DefaultConfigurer;
 import org.axonframework.config.EventProcessingConfigurer;
+import org.axonframework.eventhandling.gateway.EventGateway;
 import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
 import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.axonframework.eventsourcing.eventstore.inmemory.InMemoryEventStorageEngine;
@@ -47,14 +48,20 @@ public class AxonConfiguration {
 
 	@Produces
 	@ApplicationScoped
-	public CommandGateway getCommandEmitterService() {
+	public CommandGateway getCommandGateway() {
 		return configuration.commandGateway();
 	}
 
 	@Produces
 	@ApplicationScoped
-	public QueryGateway getQuerySubmitterService() {
+	public QueryGateway getQueryGateway() {
 		return configuration.queryGateway();
+	}
+
+	@Produces
+	@ApplicationScoped
+	public EventGateway getEventGateway() {
+		return configuration.eventGateway();
 	}
 
 	@Produces
