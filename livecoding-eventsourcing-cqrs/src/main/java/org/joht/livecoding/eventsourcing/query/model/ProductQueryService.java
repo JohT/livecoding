@@ -18,7 +18,7 @@ public class ProductQueryService {
 	QueryGateway queryGateway;
 
 	public Optional<Product> getProduct(String productId) {
-		ProductQuery query = ProductQuery.ofId(productId);
+		ProductQuery query = new ProductQuery(productId);
 		try {
 			return queryGateway.query(query, ResponseTypes.optionalInstanceOf(Product.class)).get();
 		} catch (InterruptedException | ExecutionException e) {
