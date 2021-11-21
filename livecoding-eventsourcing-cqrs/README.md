@@ -26,11 +26,11 @@ as setter for the regarding properties.
 * Finish the aggregate optionally with Getters, hashCode, equals and toString method implementations.
 
 ### 1.3. Command Side - The Integration-Test
-* Create `ProductLiveServiceIT` annotated with `@EnableAutoWeld @AddPackages(ProductLiveService.class) @AddBeanClasses(AxonConfiguration.class)` in the same package as the reference implementation [ProductServiceIT.java](src/test/java/org/joht/livecoding/eventsourcing/command/model/ProductServiceIT.java).
-* `@Inject` the `ProductLiveService` as the `serviceUnderTest`.
+* Create `LiveProductServiceIT` annotated with `@EnableAutoWeld @AddPackages(LiveProductService.class) @AddBeanClasses(AxonConfiguration.class)` in the same package as the reference implementation [ProductServiceIT.java](src/test/java/org/joht/livecoding/eventsourcing/command/model/ProductServiceIT.java).
+* `@Inject` the `LiveProductService` as the `serviceUnderTest`.
 
 ### 2.1. Query Side - The Query Service
-* Create an `@ApplicationScoped ProductLiveQueryService` in the same package as the reference implementation [ProductQueryService](src/main/java/org/joht/livecoding/eventsourcing/query/model/ProductQueryService.java).
+* Create an `@ApplicationScoped LiveProductQueryService` in the same package as the reference implementation [ProductQueryService](src/main/java/org/joht/livecoding/eventsourcing/query/model/ProductQueryService.java).
 * Write a `getProduct` Method with parameter `productId` returning an `Optional<Product>`.
 * Create an instance of the query message type [ProductQuery](src/main/java/org/joht/livecoding/eventsourcing/message/query/ProductQuery.java) with the given id.
 * `@Inject` the `QueryGateway` to send the query message and get its results back.
@@ -46,9 +46,9 @@ as setter for the regarding properties.
 * Show (or retype) [ProductRepository](src/main/java/org/joht/livecoding/eventsourcing/query/model/ProductRepository.java).
 
 ### 2.5. Query Side - The Integration-Test
-* Create `ProductLiveQueryServiceIT` annotated with `@EnableAutoWeld @AddPackages(ProductService.class) @AddPackages(ProductQueryService.class) @AddBeanClasses(AxonConfiguration.class)` in the same package as the reference implementation [ProductQueryServiceIT.java](src/test/java/org/joht/livecoding/eventsourcing/query/model/ProductQueryServiceIT.java).
+* Create `LiveProductQueryServiceIT` annotated with `@EnableAutoWeld @AddPackages(ProductService.class) @AddPackages(ProductQueryService.class) @AddBeanClasses(AxonConfiguration.class)` in the same package as the reference implementation [ProductQueryServiceIT.java](src/test/java/org/joht/livecoding/eventsourcing/query/model/ProductQueryServiceIT.java).
 * `@Inject` the `ProductQueryService` as the `serviceUnderTest`.
-* `@Inject` the `ProductService` as the `productService`.
+* `@Inject` the `EventGateway` as the `eventGateway`.
 
 ### References:
 * [Event Sourcing (Martin Fowler)](https://martinfowler.com/eaaDev/EventSourcing.html)
