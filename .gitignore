@@ -1,18 +1,100 @@
-*.iml
-target/
-**/*.iml
-.classpath
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Eclipse
 .project
+.classpath
 .settings/
+bin/
+
+# Eclipse DBeaver
+.dbeaver
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode
+
+# OSX
 .DS_Store
+**/.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Maven
+target/
 pom.xml.tag
+pom.xml.next
 pom.xml.releaseBackup
 pom.xml.versionsBackup
-pom.xml.next
-release.properties
 dependency-reduced-pom.xml
+release.properties
 buildNumber.properties
 .mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-*.zip
-*.log
+
+# keep the wrapper jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Others
+ObjectStore/
+*.iml
+**/*.iml
+
+# Node dependencies
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Output of 'npm pack'
+*.tgz
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# nyc (formerly known as istanbul) test coverage data
+.nyc_output
+
+# coverage reports
+coverage/
+
+# development build directory
+#devdist/
+
+# ignore all build results (temporarily)
+#devdist/
+#dist/
+#**/docs/**
+#!jsdoc.json
