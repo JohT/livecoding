@@ -43,7 +43,7 @@
 		
 		<!-- Provider -->
 		<debezium.version>1.6.3.Final</debezium.version>
-		<yasson.version>2.0.2</yasson.version> 
+		<yasson.version>2.0.3</yasson.version> 
 		
 		<!-- Test libraries -->
 		<archunit.version>0.21.0</archunit.version>
