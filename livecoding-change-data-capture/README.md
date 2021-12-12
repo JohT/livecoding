@@ -11,7 +11,7 @@ The following steps describe how to to use this example for (prepared) livecodin
 * If not setup yet, run the setup steps in [example-database-setup.ddl](example-database-setup.ddl) or simply the whole script.
 * After setup, the database needs to be restarted to update the "wal_level" to "logical".
 * Open the already prepared integration test [ChangeDataCaptureExampleServiceIT](src/test/java/org/joht/livecoding/changedatacapture/integrationtest/ChangeDataCaptureExampleServiceIT.java).
-* Comment or remove `@Disabled` on top of the Method `exploratoryManualDatabaseChangeExample` to get a first manual test.
+* Use the Method `exploratoryManualDatabaseChangeExample` to get a first manual test. It won't run until the CDI event emitting service is written and the events are observed inside the test with an event handling method.
 * Create a new file `ChangeDataCaptureExampleService.java` inside the folder `src/main/java/org/joht/livecoding/changedatacapture` and annotate it `@ApplicationScoped`.
 * Implement the method `startDebeziumEngine` (for details see reference implementation), that gets called when the application starts (parameter annotated with `@Observes @Initialized(ApplicationScoped.class`).
 * Don't forget to start the debezium engine using an injected `ManagedExecutorService`.
