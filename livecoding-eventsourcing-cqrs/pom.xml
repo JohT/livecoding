@@ -43,7 +43,7 @@
 		
 		<!-- EventSourcing -->
 		<axon.eventsourcing.version>4.5.10</axon.eventsourcing.version>
-		<axon.configuration.version>4.5.10</axon.configuration.version>
+		<axon.configuration.version>4.5.15</axon.configuration.version>
 		<axon.test.version>4.5.9</axon.test.version>
 		
 		<!-- Provider -->
