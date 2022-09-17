@@ -11,7 +11,7 @@
    "packageRules": [
     {
       "matchPackagePatterns": [
-        "^org\\.axonframework.*"
+        "axon"
       ],
       "groupName": "AxonFramework"
     }
