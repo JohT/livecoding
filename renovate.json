@@ -21,7 +21,7 @@
       "matchPackagePrefixes": [
         "jakarta.enterprise",
         "org.eclipse:yasson",
-        "jakarta.json:"
+        "jakarta.json"
       ],
       "groupName": "JakartaEE"
     }
