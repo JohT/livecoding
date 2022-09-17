@@ -6,9 +6,9 @@ live coding example for the change data capture and "outbox" pattern.
 
 The following steps describe how to to use this example for (prepared) livecoding.
 
-* Open [example-database-setup.ddl](example-database-setup.ddl).
+* Open [example-database-setup.sql](example-database-setup.sql).
 * Establish a connection to a local PostgreSql database.
-* If not setup yet, run the setup steps in [example-database-setup.ddl](example-database-setup.ddl) or simply the whole script.
+* If not setup yet, run the setup steps in [example-database-setup.sql](example-database-setup.sql) or simply the whole script.
 * After setup, the database needs to be restarted to update the "wal_level" to "logical".
 * Open the already prepared integration test [ChangeDataCaptureExampleServiceIT](src/test/java/org/joht/livecoding/changedatacapture/integrationtest/ChangeDataCaptureExampleServiceIT.java).
 * Use the Method `exploratoryManualDatabaseChangeExample` to get a first manual test. It won't run until the CDI event emitting service is written and the events are observed inside the test with an event handling method.
@@ -16,7 +16,7 @@ The following steps describe how to to use this example for (prepared) livecodin
 * Implement the method `startDebeziumEngine` (for details see reference implementation), that gets called when the application starts (parameter annotated with `@Observes @Initialized(ApplicationScoped.class`).
 * Don't forget to start the debezium engine using an injected `ManagedExecutorService`.
 * Use [ChangeDataCaptureService](src/main/java/org/joht/livecoding/changedatacapture/ChangeDataCaptureService.java) as a reference for the service implementation.
-* Use [ChangeDataCaptureServiceIT](src/test/java/org/joht/livecoding/changedatacapture/integrationtest/ChangeDataCaptureExampleIT.java) as a reference for the integration test.
+* Use [ChangeDataCaptureServiceIT](src/test/java/org/joht/livecoding/changedatacapture/integrationtest/ChangeDataCaptureServiceIT.java) as a reference for the integration test.
 
 ### References:
 * [A Gentle Introduction to Event-driven Change Data Capture](https://medium.com/event-driven-utopia/a-gentle-introduction-to-event-driven-change-data-capture-683297625f9b)
