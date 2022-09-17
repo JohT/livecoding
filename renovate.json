@@ -1,9 +1,29 @@
 {
   "extends": [
     "config:base",
- 	"schedule:monthly",   
+ 	  "schedule:earlyMondays",
+    ":ignoreUnstable",
     ":automergeDigest",
     ":automergePatch",
-    ":automergeMinor"
+    ":automergeRequireAllStatusChecks",
+    "group:recommended"
+  ],
+   "packageRules": [
+    {
+      "matchPackagePrefixes": [
+        "org.axonframework:"
+      ],
+      "groupName": "AxonFramework"
+    }
+  ],
+   "packageRules": [
+    {
+      "matchPackagePrefixes": [
+        "jakarta.enterprise:",
+        "org.eclipse:yasson",
+        "jakarta.json:"
+      ],
+      "groupName": "JakartaEE"
+    }
   ]
 }
