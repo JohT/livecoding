@@ -56,7 +56,7 @@
 		<weld-junit5.version>3.0.0.Final</weld-junit5.version>
 		<mockito.version>3.12.4</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
-		<junit-jupiter.version>5.8.2</junit-jupiter.version>
+		<junit-jupiter.version>5.9.0</junit-jupiter.version>
 	</properties>
 
 	<dependencies>
