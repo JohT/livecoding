@@ -11,7 +11,7 @@
    "packageRules": [
     {
       "matchPackagePrefixes": [
-        "org.axonframework:"
+        "org.axonframework"
       ],
       "groupName": "AxonFramework"
     }
@@ -19,7 +19,7 @@
    "packageRules": [
     {
       "matchPackagePrefixes": [
-        "jakarta.enterprise:",
+        "jakarta.enterprise",
         "org.eclipse:yasson",
         "jakarta.json:"
       ],
