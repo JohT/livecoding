@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
- 	  "schedule:earlyMondays",
+    "schedule:earlyMondays",
     ":ignoreUnstable",
     ":automergeDigest",
     ":automergePatch",
@@ -10,8 +10,8 @@
   ],
    "packageRules": [
     {
-      "matchPackagePrefixes": [
-        "org.axonframework"
+      "matchPackagePatterns": [
+        "axonframework"
       ],
       "groupName": "AxonFramework"
     }
