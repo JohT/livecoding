@@ -1,7 +1,5 @@
 package org.joht.livecoding.eventsourcing.infrastructure.axon;
 
-import java.util.concurrent.ExecutionException;
-
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.config.Configuration;
 import org.axonframework.config.Configurer;
@@ -42,7 +40,7 @@ public class AxonConfiguration {
 	}
 
 	@PreDestroy
-	protected void shutdown() throws InterruptedException, ExecutionException {
+	protected void shutdown() {
 		configuration.shutdown();
 	}
 
