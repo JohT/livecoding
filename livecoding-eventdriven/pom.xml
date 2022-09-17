@@ -36,7 +36,7 @@
 		<maven.assembly.version>3.4.2</maven.assembly.version>
 
 		<!-- APIs -->
-		<jakarta.cdi-api.version>3.0.1</jakarta.cdi-api.version>
+		<jakarta.cdi-api.version>4.0.1</jakarta.cdi-api.version>
 
 		<!-- Test libraries -->
 		<weld-junit5.version>3.1.0.Final</weld-junit5.version>
