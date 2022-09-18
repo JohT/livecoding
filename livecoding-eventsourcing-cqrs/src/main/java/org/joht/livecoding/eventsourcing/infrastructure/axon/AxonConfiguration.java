@@ -16,8 +16,8 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
-import jakarta.enterprise.inject.spi.BeanManager;
-import jakarta.inject.Inject;
+import jakarta.enterprise.inject.spi.BeanContainer;
+import jakarta.enterprise.inject.spi.CDI;
 
 /**
  * Provides selected tools of the AxonFramework and their configuration for the use with CDI.
@@ -25,16 +25,15 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class AxonConfiguration {
 
-	@Inject
-	BeanManager beanManager;
-
 	private Configuration configuration;
 
 	@PostConstruct
 	protected void startUp() {
 		Configurer configurer = DefaultConfigurer.defaultConfiguration();
 		querySideEventProcessing(configurer);
-		AxonComponentDiscovery.ofBeanManager(beanManager).addDiscoveredComponentsTo(configurer);
+		//@Inject BeanContainer doesn't seem to work with weld-junit5 for now (2022-09)
+		BeanContainer beanContainer = CDI.current().getBeanContainer();
+		AxonComponentDiscovery.ofBeanContainer(beanContainer).addDiscoveredComponentsTo(configurer);
 		configuration = configurer.configureEmbeddedEventStore(this::eventStorageEngine).buildConfiguration();
 		configuration.start();
 	}
