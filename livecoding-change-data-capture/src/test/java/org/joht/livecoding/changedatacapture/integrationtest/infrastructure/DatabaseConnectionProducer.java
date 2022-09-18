@@ -5,12 +5,13 @@ import java.sql.Connection;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 
+@ApplicationScoped
 public class DatabaseConnectionProducer {
 
 	@Produces
 	@ApplicationScoped
 	@Integrationtest
-	public static final Connection localPostgreSQL() {
+	public Connection localPostgreSQL() {
 		return DatabaseConnection.localPostgreSQL();
 	}
 

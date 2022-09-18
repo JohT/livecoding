@@ -17,6 +17,7 @@ import jakarta.enterprise.inject.Produces;
  * The {@link ManagedExecutorService} can only be injected in a full Jakarta EE or MicroProfile environment.
  * This producer provides it for the "Weld" (= CDI only) test environment.
  */
+@ApplicationScoped
 public class ManagedExecutorServiceProducer {
 
 	private static final Logger LOG = Logger.getLogger(ManagedExecutorServiceProducer.class.getName());

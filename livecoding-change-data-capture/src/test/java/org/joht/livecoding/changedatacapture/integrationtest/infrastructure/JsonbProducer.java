@@ -11,6 +11,7 @@ import jakarta.json.bind.JsonbBuilder;
  * The {@link Jsonb} can only be injected in a full Jakarta EE or MicroProfile environment.
  * This producer provides it for the "Weld" (= CDI only) test environment.
  */
+@ApplicationScoped
 public class JsonbProducer {
 
 	private static final Logger LOG = Logger.getLogger(JsonbProducer.class.getName());

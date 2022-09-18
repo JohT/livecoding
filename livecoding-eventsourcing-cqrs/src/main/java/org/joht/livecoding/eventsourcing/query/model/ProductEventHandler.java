@@ -5,8 +5,10 @@ import org.joht.livecoding.eventsourcing.Product;
 import org.joht.livecoding.eventsourcing.message.event.ProductCreatedEvent;
 import org.joht.livecoding.eventsourcing.message.event.ProductNameChangedEvent;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+@ApplicationScoped
 public class ProductEventHandler {
 
 	@Inject

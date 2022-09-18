@@ -36,10 +36,10 @@
 		<maven.assembly.version>3.4.2</maven.assembly.version>
 		
 		<!-- APIs -->
-		<jakarta.cdi-api.version>3.0.1</jakarta.cdi-api.version>
+		<jakarta.cdi-api.version>4.0.1</jakarta.cdi-api.version>
 		<jakarta.json-api.version>2.1.1</jakarta.json-api.version>
-		<jakarta.json.bind-api.version>2.0.0</jakarta.json.bind-api.version>
-		<jakarta.concurrent-api.version>2.0.0</jakarta.concurrent-api.version>
+		<jakarta.json.bind-api.version>3.0.0</jakarta.json.bind-api.version>
+		<jakarta.concurrent-api.version>3.0.1</jakarta.concurrent-api.version>
 		
 		<!-- EventSourcing -->
 		<axon.eventsourcing.version>4.6.0</axon.eventsourcing.version>
@@ -48,12 +48,12 @@
 		
 		<!-- Provider -->
 		<json-processing-provider-glassfish.version>2.0.1</json-processing-provider-glassfish.version> 
-		<json-binding-provider-yasson.version>2.0.4</json-binding-provider-yasson.version> 
+		<json-binding-provider-yasson.version>3.0.2</json-binding-provider-yasson.version> 
 		
 		<!-- Test libraries -->
 		<archunit.version>0.23.1</archunit.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
-		<weld-junit5.version>3.1.0.Final</weld-junit5.version>
+		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
 		<mockito.version>4.8.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<junit-jupiter.version>5.9.0</junit-jupiter.version>
