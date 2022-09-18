@@ -19,22 +19,25 @@ import jakarta.enterprise.context.spi.CreationalContext;
 import jakarta.enterprise.inject.Any;
 import jakarta.enterprise.inject.Typed;
 import jakarta.enterprise.inject.spi.Bean;
-import jakarta.enterprise.inject.spi.BeanManager;
+import jakarta.enterprise.inject.spi.BeanContainer;
 import jakarta.enterprise.util.AnnotationLiteral;
 
 /**
- * Discovers all components for axon using CDI's {@link BeanManager#getBeans(String)}.
+ * Discovers all components for axon using CDI's {@link BeanContainer#getBeans(String)}.
+ * In comparison to BeanManager, its super interface {@link BeanContainer} is also supported by CDI lite.
+ * Restraining the visibility to {@link BeanContainer} leads to a broader compatibility and 
+ * follows the interface segregation principle.
  */
 public class AxonComponentDiscovery {
 
-	private final BeanManager beanManager;
+	private final BeanContainer beanContainer;
 
-	public static final AxonComponentDiscovery ofBeanManager(BeanManager beanManager) {
-		return new AxonComponentDiscovery(beanManager);
+	public static final AxonComponentDiscovery ofBeanContainer(BeanContainer beanContainer) {
+		return new AxonComponentDiscovery(beanContainer);
 	}
 	
-	public AxonComponentDiscovery(BeanManager beanManager) {
-		this.beanManager = beanManager;
+	public AxonComponentDiscovery(BeanContainer beanContainer) {
+		this.beanContainer = beanContainer;
 	}
 
 	/**
@@ -92,7 +95,7 @@ public class AxonComponentDiscovery {
 	}
 
 	private void registerResourceInjector(Configurer axonConfigurer) {
-		axonConfigurer.configureResourceInjector(CdiResourceInjector.useBeanManager(beanManager));
+		axonConfigurer.configureResourceInjector(CdiResourceInjector.useBeanContainerIfCapable(beanContainer));
 	}
 
 	private Function<Configuration, Object> lookedUp(Class<?> typeToLookUp) {
@@ -104,13 +107,13 @@ public class AxonComponentDiscovery {
 	}
 
 	private <U> Object lookup(Class<?> type, Annotation... qualifiers) {
-		Bean<?> bean = beanManager.getBeans(type, qualifiers).iterator().next();
-		CreationalContext<?> ctx = beanManager.createCreationalContext(bean);
-		return beanManager.getReference(bean, type, ctx);
+		Bean<?> bean = beanContainer.getBeans(type, qualifiers).iterator().next();
+		CreationalContext<?> ctx = beanContainer.createCreationalContext(bean);
+		return beanContainer.getReference(bean, type, ctx);
 	}
 
 	private RegisteredAnnotatedTypes getBeanTypes() {
-		Set<Bean<?>> beans = beanManager.getBeans(Object.class, AnnotationLiteralAny.ANY);
+		Set<Bean<?>> beans = beanContainer.getBeans(Object.class, AnnotationLiteralAny.ANY);
 		return RegisteredAnnotatedTypes
 				.ofStream(beans.stream().filter(this::isBeanWithAtLeastOneType).map(Bean::getBeanClass));
 	}
@@ -124,4 +127,10 @@ public class AxonComponentDiscovery {
 		private static final long serialVersionUID = 1L;
 		public static final AnnotationLiteral<Any> ANY = new AnnotationLiteralAny();
 	}
+
+	@Override
+	public String toString() {
+		return "AxonComponentDiscovery [beanContainer=" + beanContainer + "]";
+	}
+	
 }
