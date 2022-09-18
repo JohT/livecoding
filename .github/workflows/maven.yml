@@ -21,7 +21,7 @@ jobs:
     - name: (livecoding-change-data-capture) Build with Maven
       working-directory: livecoding-change-data-capture
       run: mvn -B package --file pom.xml
-    - name: (livecoding-change-data-capture) Upload project zip arctifact
+    - name: (livecoding-change-data-capture) Upload self contained project zip artifact
       uses: actions/upload-artifact@v3
       with:
         name: livecoding-change-data-capture
@@ -30,7 +30,7 @@ jobs:
     - name: (livecoding-functional) Build with Maven
       working-directory: livecoding-functional
       run: mvn -B verify --file pom.xml
-    - name: (livecoding-functional) Upload project zip arctifact
+    - name: (livecoding-functional) Upload self contained project zip artifact
       uses: actions/upload-artifact@v3
       with:
         name: livecoding-functional
@@ -39,7 +39,7 @@ jobs:
     - name: (livecoding-eventdriven) Build with Maven
       working-directory: livecoding-eventdriven
       run: mvn -B verify --file pom.xml
-    - name: (livecoding-eventdriven) Upload project zip arctifact
+    - name: (livecoding-eventdriven) Upload self contained project zip artifact
       uses: actions/upload-artifact@v3
       with:
         name: livecoding-eventdriven
@@ -48,9 +48,17 @@ jobs:
     - name: (livecoding-eventsourcing-cqrs) Build with Maven
       working-directory: livecoding-eventsourcing-cqrs
       run: mvn -B verify --file pom.xml
-    - name: (livecoding-eventsourcing-cqrs) Upload project zip arctifact
+    - name: (livecoding-eventsourcing-cqrs) Upload self contained project zip artifact
       uses: actions/upload-artifact@v3
       with:
         name: livecoding-eventsourcing-cqrs
         path: livecoding-eventsourcing-cqrs/target/livecoding-eventsourcing-cqrs-project.zip
       
+    - name: (livecoding-unit-testing) Build with Maven
+      working-directory: livecoding-unit-testing
+      run: mvn -B verify --file pom.xml
+    - name: (livecoding-unit-testing) Upload self contained project zip artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: livecoding-unit-testing
+        path: livecoding-unit-testing/target/livecoding-unit-testing-project.zip
