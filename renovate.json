@@ -10,13 +10,11 @@
   ],
    "packageRules": [
     {
-      "matchPackagePatterns": [
-        ".*axonframework.*"
+      "matchPackagePrefixes": [
+        "org.axonframework"
       ],
       "groupName": "AxonFramework"
-    }
-  ],
-   "packageRules": [
+    },
     {
       "matchPackagePrefixes": [
         "jakarta.enterprise",
