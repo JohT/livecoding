@@ -46,7 +46,7 @@
 		<yasson.version>3.0.2</yasson.version> 
 		
 		<!-- Test libraries -->
-		<archunit.version>0.23.1</archunit.version>
+		<archunit.version>1.0.0</archunit.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
 	</properties>
