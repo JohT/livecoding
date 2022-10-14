@@ -54,6 +54,7 @@
 		<archunit.version>0.23.1</archunit.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
+		<weld-se-core.version>5.1.0.Final</weld-se-core.version>
 		<mockito.version>4.8.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<junit-jupiter.version>5.9.0</junit-jupiter.version>
@@ -113,6 +114,12 @@
 			<scope>test</scope>
 		</dependency>
 
+         <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${weld-se-core.version}</version>
+         </dependency>
+         
 		<!-- Test JSON-P (Processing) Provider -->
 		<dependency>
     		<groupId>org.glassfish</groupId>
