@@ -43,6 +43,9 @@
 		<debezium.version>2.0.0.Final</debezium.version>
 		<yasson.version>3.0.2</yasson.version>
 
+		<!-- Logging -->
+		<slf4j.version>1.7.36</slf4j.version>
+		
 		<!-- Test libraries -->
 		<archunit.version>1.0.0</archunit.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
@@ -101,6 +104,18 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
 		<!-- Test libraries -->
 		<dependency>
 			<groupId>org.jboss.weld</groupId>
