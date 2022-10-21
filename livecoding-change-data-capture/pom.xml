@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.github.joht.livecoding</groupId>
@@ -25,26 +23,26 @@
 		<url>https://github.com/JohT/livecoding</url>
 		<tag>HEAD</tag>
 	</scm>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
-		
+
 		<maven.compiler.version>3.10.1</maven.compiler.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<maven.failsafe.version>2.22.2</maven.failsafe.version>
 		<maven.assembly.version>3.4.2</maven.assembly.version>
-		
+
 		<!-- APIs -->
 		<cdi.version>4.0.1</cdi.version>
 		<jakarta.json-api.version>2.1.1</jakarta.json-api.version>
 		<jakarta.json.bind-api.version>3.0.0</jakarta.json.bind-api.version>
 		<jakarta.enterprise.concurrent-api.version>3.0.2</jakarta.enterprise.concurrent-api.version>
-		
+
 		<!-- Provider -->
 		<debezium.version>2.0.0.Final</debezium.version>
-		<yasson.version>3.0.2</yasson.version> 
-		
+		<yasson.version>3.0.2</yasson.version>
+
 		<!-- Test libraries -->
 		<archunit.version>1.0.0</archunit.version>
 		<equalsverifier.version>3.10.1</equalsverifier.version>
@@ -59,21 +57,21 @@
 		</dependency>
 
 		<dependency>
-    		<groupId>jakarta.json</groupId>
-    		<artifactId>jakarta.json-api</artifactId>
-    		<version>${jakarta.json-api.version}</version>
+			<groupId>jakarta.json</groupId>
+			<artifactId>jakarta.json-api</artifactId>
+			<version>${jakarta.json-api.version}</version>
 		</dependency>
-		
+
 		<dependency>
-    		<groupId>jakarta.json.bind</groupId>
-    		<artifactId>jakarta.json.bind-api</artifactId>
-    		<version>${jakarta.json.bind-api.version}</version>
+			<groupId>jakarta.json.bind</groupId>
+			<artifactId>jakarta.json.bind-api</artifactId>
+			<version>${jakarta.json.bind-api.version}</version>
 		</dependency>
-		
+
 		<dependency>
-    		<groupId>jakarta.enterprise.concurrent</groupId>
-    		<artifactId>jakarta.enterprise.concurrent-api</artifactId>
-    		<version>${jakarta.enterprise.concurrent-api.version}</version>
+			<groupId>jakarta.enterprise.concurrent</groupId>
+			<artifactId>jakarta.enterprise.concurrent-api</artifactId>
+			<version>${jakarta.enterprise.concurrent-api.version}</version>
 		</dependency>
 
 		<dependency>
@@ -97,10 +95,10 @@
 		</dependency>
 
 		<dependency>
-    		<groupId>org.eclipse</groupId>
-    		<artifactId>yasson</artifactId>
-    		<version>${yasson.version}</version>
-    		<scope>provided</scope>
+			<groupId>org.eclipse</groupId>
+			<artifactId>yasson</artifactId>
+			<version>${yasson.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- Test libraries -->
@@ -112,19 +110,19 @@
 		</dependency>
 
 		<dependency>
-    		<groupId>com.tngtech.archunit</groupId>
-    		<artifactId>archunit-junit5</artifactId>
-    		<version>${archunit.version}</version>
-    		<scope>test</scope>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>${archunit.version}</version>
+			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>nl.jqno.equalsverifier</groupId>
 			<artifactId>equalsverifier</artifactId>
 			<version>${equalsverifier.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>
@@ -147,31 +145,31 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>${maven.failsafe.version}</version>
 				<executions>
-                	<execution>
-                    	<goals>
-                        	<goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven.assembly.version}</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>./../maven-project-assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven.assembly.version}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>./../maven-project-assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
