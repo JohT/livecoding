@@ -44,7 +44,7 @@
 		<yasson.version>3.0.2</yasson.version>
 
 		<!-- Logging -->
-		<slf4j.version>2.0.3</slf4j.version>
+		<slf4j.version>2.0.4</slf4j.version>
 		
 		<!-- Test libraries -->
 		<archunit.version>1.0.0</archunit.version>
