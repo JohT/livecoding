@@ -52,7 +52,7 @@
 		
 		<!-- Test libraries -->
 		<archunit.version>1.0.1</archunit.version>
-		<equalsverifier.version>3.12.1</equalsverifier.version>
+		<equalsverifier.version>3.12.2</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
 		<weld-se-core.version>5.1.0.Final</weld-se-core.version>
 		<mockito.version>4.9.0</mockito.version>
