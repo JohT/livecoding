@@ -48,7 +48,7 @@
 		
 		<!-- Test libraries -->
 		<archunit.version>1.0.1</archunit.version>
-		<equalsverifier.version>3.12.4</equalsverifier.version>
+		<equalsverifier.version>3.13.1</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
 	</properties>
 
