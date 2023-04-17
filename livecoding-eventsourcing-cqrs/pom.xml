@@ -48,7 +48,7 @@
 		
 		<!-- Provider -->
 		<json-processing-provider-glassfish.version>2.0.1</json-processing-provider-glassfish.version> 
-		<json-binding-provider-yasson.version>3.0.2</json-binding-provider-yasson.version> 
+		<json-binding-provider-yasson.version>3.0.3</json-binding-provider-yasson.version> 
 		
 		<!-- Test libraries -->
 		<archunit.version>1.0.1</archunit.version>
