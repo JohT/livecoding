@@ -54,7 +54,7 @@
 		<archunit.version>1.0.1</archunit.version>
 		<equalsverifier.version>3.14.2</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
-		<weld-se-core.version>5.1.0.Final</weld-se-core.version>
+		<weld-se-core.version>5.1.1.Final</weld-se-core.version>
 		<mockito.version>5.4.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<junit-jupiter.version>5.9.3</junit-jupiter.version>
