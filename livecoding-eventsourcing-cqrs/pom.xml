@@ -51,7 +51,7 @@
 		<json-binding-provider-yasson.version>3.0.3</json-binding-provider-yasson.version> 
 		
 		<!-- Test libraries -->
-		<archunit.version>1.0.1</archunit.version>
+		<archunit.version>1.1.0</archunit.version>
 		<equalsverifier.version>3.15.1</equalsverifier.version>
 		<weld-junit5.version>4.0.0.Final</weld-junit5.version>
 		<weld-se-core.version>5.1.1.SP2</weld-se-core.version>
