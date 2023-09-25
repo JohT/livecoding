@@ -37,7 +37,7 @@
 		<cdi.version>4.0.1</cdi.version>
 		<jakarta.json-api.version>2.1.2</jakarta.json-api.version>
 		<jakarta.json.bind-api.version>3.0.0</jakarta.json.bind-api.version>
-		<jakarta.enterprise.concurrent-api.version>3.0.2</jakarta.enterprise.concurrent-api.version>
+		<jakarta.enterprise.concurrent-api.version>3.0.3</jakarta.enterprise.concurrent-api.version>
 
 		<!-- Provider -->
 		<debezium.version>2.3.3.Final</debezium.version>
