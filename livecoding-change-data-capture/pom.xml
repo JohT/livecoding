@@ -41,7 +41,7 @@
 
 		<!-- Provider -->
 		<debezium.version>2.7.1.Final</debezium.version>
-		<yasson.version>3.0.3</yasson.version>
+		<yasson.version>3.0.4</yasson.version>
 
 		<!-- Logging -->
 		<slf4j.version>2.0.13</slf4j.version>
