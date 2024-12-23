@@ -23,5 +23,20 @@
       ],
       "groupName": "JakartaEE"
     }
+  ],
+  "customManagers": [
+    {
+      "description": "Update java version in Maven pom.xml",
+      "customType": "regex",
+      "datasourceTemplate": "java-version",
+      "depNameTemplate": "java",
+      "packageNameTemplate": "",
+      "fileMatch": [
+        "(^|/|\\.)pom\\.xml$"
+      ],
+      "matchStrings": [
+        "<java.version>(?<currentValue>[0-9]+)<\/java.version>"
+      ]
+    }
   ]
 }
