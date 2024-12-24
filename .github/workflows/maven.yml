@@ -6,16 +6,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env: 
+      JAVA_VERSION: 17
     steps:
     - uses: actions/checkout@v4
     - name: Create a temporary artifact downloads folder
       run: mkdir downloads
-    - name: Set up JDK 17
+    - name: Setup JDK ${{env.JAVA_VERSION}}
       uses: actions/setup-java@v4
       with:
         distribution: 'adopt'
-        java-version: 17
+        java-version: ${{env.JAVA_VERSION}}
         cache: 'maven'
         
     - name: (livecoding-change-data-capture) Build with Maven

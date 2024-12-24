@@ -22,6 +22,12 @@
         "jakarta.json"
       ],
       "groupName": "JakartaEE"
+    },
+    {
+      "matchDatasources": [
+        "java-version"
+      ],
+      "groupName": "Java Development Kit (JDK)"
     }
   ],
   "customManagers": [
@@ -36,6 +42,21 @@
       ],
       "matchStrings": [
         "<java.version>(?<currentValue>[0-9]+)<\/java.version>"
+      ],
+      "extractVersionTemplate": "^(?<version>\\d+).*$"
+    },
+    {
+      "description": "Update java version in GitHub Action environment variable",
+      "customType": "regex",
+      "datasourceTemplate": "java-version",
+      "depNameTemplate": "java",
+      "packageNameTemplate": "",
+      "fileMatch": [
+        "^(workflow-templates|\\.github/workflows)\\/[^/]+\\.ya?ml$",
+        "(^|\\/)action\\.ya?ml$]"
+      ],
+      "matchStrings": [
+        "JAVA_VERSION:\\s+?(?<currentValue>.*?)\\s+"
       ],
       "extractVersionTemplate": "^(?<version>\\d+).*$"
     }
