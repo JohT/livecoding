@@ -37,7 +37,7 @@
       "matchStrings": [
         "<java.version>(?<currentValue>[0-9]+)<\/java.version>"
       ],
-      "versioningTemplate": "regex:^(?<major>\\d+).*$"
+      "extractVersionTemplate": "^(?<version>\\d+).*$"
     }
   ]
 }
