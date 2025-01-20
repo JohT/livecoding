@@ -40,7 +40,7 @@
 		<jakarta.enterprise.concurrent-api.version>3.1.1</jakarta.enterprise.concurrent-api.version>
 
 		<!-- Provider -->
-		<debezium.version>3.0.6.Final</debezium.version>
+		<debezium.version>3.0.7.Final</debezium.version>
 		<yasson.version>3.0.4</yasson.version>
 
 		<!-- Logging -->
