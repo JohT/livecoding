@@ -53,7 +53,7 @@
 		<!-- Test libraries -->
 		<archunit.version>1.4.1</archunit.version>
 		<equalsverifier.version>3.19.4</equalsverifier.version>
-		<weld-junit5.version>5.0.0.Final</weld-junit5.version>
+		<weld-junit5.version>5.0.1.Final</weld-junit5.version>
 		<weld-se-core.version>6.0.3.Final</weld-se-core.version>
 		<mockito.version>5.17.0</mockito.version>
 		<hamcrest.version>3.0</hamcrest.version>
