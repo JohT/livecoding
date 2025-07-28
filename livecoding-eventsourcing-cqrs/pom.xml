@@ -57,7 +57,7 @@
 		<weld-se-core.version>6.0.3.Final</weld-se-core.version>
 		<mockito.version>5.18.0</mockito.version>
 		<hamcrest.version>3.0</hamcrest.version>
-		<junit-jupiter.version>5.13.3</junit-jupiter.version>
+		<junit-jupiter.version>5.13.4</junit-jupiter.version>
 	</properties>
 
 	<dependencies>
