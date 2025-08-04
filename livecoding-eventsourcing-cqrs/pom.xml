@@ -42,9 +42,9 @@
 		<jakarta.concurrent-api.version>3.1.1</jakarta.concurrent-api.version>
 		
 		<!-- EventSourcing -->
-		<axon.eventsourcing.version>4.11.3</axon.eventsourcing.version>
-		<axon.configuration.version>4.11.3</axon.configuration.version>
-		<axon.test.version>4.11.3</axon.test.version>
+		<axon.eventsourcing.version>4.12.0</axon.eventsourcing.version>
+		<axon.configuration.version>4.12.0</axon.configuration.version>
+		<axon.test.version>4.12.0</axon.test.version>
 		
 		<!-- Provider -->
 		<json-processing-provider-glassfish.version>2.0.1</json-processing-provider-glassfish.version> 
