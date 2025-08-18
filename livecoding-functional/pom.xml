@@ -36,7 +36,7 @@
 		<!-- Test libraries -->
 		<junit4.version>4.13.2</junit4.version>
 		<hamcrest.version>3.0</hamcrest.version>
-		<mockito.version>5.18.0</mockito.version>
+		<mockito.version>5.19.0</mockito.version>
 	</properties>
 
 	<dependencies>
