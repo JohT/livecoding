@@ -7,7 +7,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-      JAVA_VERSION: 21
+      JAVA_VERSION: 25
     steps:
     - uses: actions/checkout@v5
     - name: Create a temporary artifact downloads folder
