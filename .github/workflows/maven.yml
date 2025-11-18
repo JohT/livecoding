@@ -40,7 +40,7 @@ jobs:
     - name: (livecoding-eventdriven) Build with Maven
       working-directory: livecoding-eventdriven
       run: mvn -B verify --file pom.xml
-    - name: (livecoding-eventdriven) Upload project zip arctifact
+    - name: (livecoding-eventdriven) Upload self contained project zip artifact
       uses: actions/upload-artifact@v5
       with:
         name: livecoding-eventdriven
@@ -55,3 +55,11 @@ jobs:
         name: livecoding-eventsourcing-cqrs
         path: livecoding-eventsourcing-cqrs/target/livecoding-eventsourcing-cqrs-project.zip
       
+    - name: (livecoding-unit-testing) Build with Maven
+      working-directory: livecoding-unit-testing
+      run: mvn -B verify --file pom.xml
+    - name: (livecoding-unit-testing) Upload self contained project zip artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: livecoding-unit-testing
+        path: livecoding-unit-testing/target/livecoding-unit-testing-project.zip
