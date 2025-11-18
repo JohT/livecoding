@@ -10,7 +10,7 @@
 	<name>livecoding-eventsourcing-cqrs</name>
 	<description>Simple example for eventsourcing</description>
 	<inceptionYear>2021</inceptionYear>
-	<url>https://github.com/JohT/livecoding/tree/master/livecoding-eventsourcing-cqrs</url>
+	<url>https://github.com/JohT/livecoding/tree/main/livecoding-eventsourcing-cqrs</url>
 
 	<licenses>
 		<license>

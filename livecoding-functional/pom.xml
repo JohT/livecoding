@@ -10,7 +10,7 @@
 	<name>livecoding functional</name>
 	<description>code snippets to show functional programming concepts in java</description>
 	<inceptionYear>2020</inceptionYear>
-	<url>https://github.com/JohT/livecoding/tree/master/livecoding-eventdriven</url>
+	<url>https://github.com/JohT/livecoding/tree/main/livecoding-eventdriven</url>
 
 	<licenses>
 		<license>
