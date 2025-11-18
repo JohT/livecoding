@@ -17,7 +17,7 @@ import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 
-import nl.jqno.equalsverifier.ConfiguredEqualsVerifier;
+import nl.jqno.equalsverifier.api.ConfiguredEqualsVerifier;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.EqualsVerifierReport;
 import nl.jqno.equalsverifier.Warning;
