@@ -23,7 +23,7 @@ jobs:
       working-directory: livecoding-change-data-capture
       run: mvn -B package --file pom.xml
     - name: (livecoding-change-data-capture) Upload project zip arctifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: livecoding-change-data-capture
         path: livecoding-change-data-capture/target/livecoding-change-data-capture-project.zip
@@ -32,7 +32,7 @@ jobs:
       working-directory: livecoding-functional
       run: mvn -B verify --file pom.xml
     - name: (livecoding-functional) Upload project zip arctifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: livecoding-functional
         path: livecoding-functional/target/livecoding-functional-project.zip
@@ -41,7 +41,7 @@ jobs:
       working-directory: livecoding-eventdriven
       run: mvn -B verify --file pom.xml
     - name: (livecoding-eventdriven) Upload project zip arctifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: livecoding-eventdriven
         path: livecoding-eventdriven/target/livecoding-eventdriven-project.zip
@@ -50,7 +50,7 @@ jobs:
       working-directory: livecoding-eventsourcing-cqrs
       run: mvn -B verify --file pom.xml
     - name: (livecoding-eventsourcing-cqrs) Upload project zip arctifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: livecoding-eventsourcing-cqrs
         path: livecoding-eventsourcing-cqrs/target/livecoding-eventsourcing-cqrs-project.zip
