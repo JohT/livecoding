@@ -36,7 +36,7 @@
 		<maven.assembly.version>3.8.0</maven.assembly.version>
 		
 		<!-- APIs -->
-		<jakarta.cdi-api.version>4.1.0</jakarta.cdi-api.version>
+		<jakarta.cdi-api.version>5.0.0</jakarta.cdi-api.version>
 		<jakarta.json-api.version>2.1.3</jakarta.json-api.version>
 		<jakarta.json.bind-api.version>3.0.3</jakarta.json.bind-api.version>
 		<jakarta.concurrent-api.version>3.1.1</jakarta.concurrent-api.version>
@@ -62,8 +62,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>jakarta.enterprise</groupId>
-			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<groupId>jakarta.cdi</groupId>
+			<artifactId>jakarta.cdi-api</artifactId>
 			<version>${jakarta.cdi-api.version}</version>
 		</dependency>
 
