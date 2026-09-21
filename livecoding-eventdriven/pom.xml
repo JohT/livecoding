@@ -36,7 +36,7 @@
 		<maven.assembly.version>3.8.0</maven.assembly.version>
 
 		<!-- APIs -->
-		<jakarta.cdi-api.version>4.1.0</jakarta.cdi-api.version>
+		<jakarta.cdi-api.version>5.0.0</jakarta.cdi-api.version>
 
 		<!-- Test libraries -->
 		<weld-junit5.version>5.0.3.Final</weld-junit5.version>
@@ -45,8 +45,8 @@
 	<dependencies>
 		<!-- Main libraries -->
 		<dependency>
-			<groupId>jakarta.enterprise</groupId>
-			<artifactId>jakarta.enterprise.cdi-api</artifactId>
+			<groupId>jakarta.cdi</groupId>
+			<artifactId>jakarta.cdi-api</artifactId>
 			<version>${jakarta.cdi-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
